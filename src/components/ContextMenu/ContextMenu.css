@@ -1,0 +1,13 @@
+.contextMenuContainer {
+	position: absolute;
+	width: 150px;
+	height: 180px;
+	background-color: rgb(91, 47, 118);
+	text-align: center;
+	padding-top: 5px;
+	color: 2F323A;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
