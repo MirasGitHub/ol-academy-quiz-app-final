@@ -1,38 +1,50 @@
 .App {
-  text-align: center;
+	text-align: center;
+}
+body {
+	background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.home-title h1 {
+	font-size: 50px;
+	font-weight: 600;
+	background-image: linear-gradient(to left, #c1b8da, #f3edf8);
+	color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.home-container,
+.quiz-container,
+.results-container,
+.history-container {
+	background-color: white;
+	min-width: 50vw;
+	max-width: 40vw;
+	padding-bottom: 100px;
+	margin: 50px auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+		rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.progress-bar {
+	width: 80%;
+}
+.quiz-container {
+	padding-bottom: 3rem;
+}
+.spinner {
+	margin: 50px auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.history-list-item ul li {
+	margin-top: 20px;
 }
