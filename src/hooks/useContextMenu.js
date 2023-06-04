@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 
-const useContextMenu = (ref1, ref2) => {
+const useContextMenu = (useRef1, useRef2) => {
 	const [coordinates, setCoordinates] = useState({ x: 0, y: 0 });
 	const [isShow, setIsShow] = useState(false);
 	const [clickedId, setClickedId] = useState("");
 
 	useEffect(() => {
 		const handleRightMouseClick = (e) => {
-			if (ref1.current.contains(e.target)) {
+			if (useRef1.current.contains(e.target)) {
 				e.preventDefault();
 				setIsShow(true);
 				setCoordinates({ x: e.pageX, y: e.pageY });
@@ -21,10 +21,10 @@ const useContextMenu = (ref1, ref2) => {
 
 	useEffect(() => {
 		const removeContext = (e) => {
-			if (ref2.current && ref2.current.contains(e.target)) {
+			if (useRef2.current && useRef2.current.contains(e.target)) {
 				return;
 			}
-			if (e.target !== ref1.current) {
+			if (e.target !== useRef1.current) {
 				setIsShow(false);
 			}
 		};
@@ -35,7 +35,7 @@ const useContextMenu = (ref1, ref2) => {
 			document.removeEventListener("contextmenu", removeContext);
 			document.removeEventListener("click", removeContext);
 		};
-	}, [ref1, ref2, isShow]);
+	}, [useRef1, useRef2, isShow]);
 
 	return {
 		coordinates,
