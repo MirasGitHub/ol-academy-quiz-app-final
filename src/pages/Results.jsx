@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Popup from "./Popup/Popup";
+import Popup from "../components/Popup/Popup";
 import { Button } from "reactstrap";
 import { useNavigate } from "react-router-dom";
 

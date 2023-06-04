@@ -1,10 +1,10 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
-import Home from "./components/Home";
-import Quiz from "./components/Quiz/Quiz";
-import Results from "./components/Results";
+import Home from "./pages/Home";
+import Quiz from "./pages/Quiz/Quiz";
+import Results from "./pages/Results";
 import { useEffect, useState } from "react";
-import History from "./components/History/History";
+import History from "./pages/History/History";
 
 function App() {
 	const [score, setScore] = useState(0);
@@ -47,7 +47,7 @@ function App() {
 	return (
 		<div className="App">
 			<Routes>
-				<Route path="/" exact element={<Home />} />
+				<Route path="/" exact element={<Home quizResults={quizResults} />} />
 				<Route
 					path="quiz"
 					element={

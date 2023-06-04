@@ -1,4 +1,6 @@
 import { useEffect, useRef } from "react";
+import uuid from "react-uuid";
+
 import { Button } from "reactstrap";
 
 import "./Popup.css";
@@ -41,8 +43,6 @@ const Popup = ({
 		if (storedResults) {
 			setQuizResults(JSON.parse(storedResults));
 		}
-
-		console.log("stored results", storedResults);
 	}, [setQuizResults]);
 
 	const handleSave = (answer) => {
@@ -52,6 +52,7 @@ const Popup = ({
 				localStorage.setItem("Results", JSON.stringify(updatedResults));
 			}
 			const currentQuizResult = {
+				id: uuid(),
 				points: score,
 				total: 9,
 				date: new Date(),
