@@ -54,7 +54,9 @@ const Popup = ({
 				id: uuid(),
 				points: score,
 				total: 9,
-				date: new Date(),
+				date: new Date().toLocaleString("en-US", {
+					timeZone: "Asia/Tbilisi",
+				}),
 			};
 			setCurrentResult(currentQuizResult);
 

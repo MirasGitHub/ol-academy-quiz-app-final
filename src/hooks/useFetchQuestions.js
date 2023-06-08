@@ -11,12 +11,14 @@ const useFetchQuestions = () => {
 		const fetchFromLocalStorage = () => {
 			const storedData = localStorage.getItem("questions");
 			const storedTimestamp = localStorage.getItem("questionsTimestamp");
-			const currentTime = Date.now();
+			const currentTime = new Date().toLocaleString("en-US", {
+				timeZone: "Asia/Tbilisi",
+			});
 
 			if (
 				storedData &&
 				storedTimestamp &&
-				currentTime - storedTimestamp < EXPIRY
+				new Date(currentTime) - new Date(storedTimestamp) < EXPIRY
 			) {
 				return JSON.parse(storedData);
 			}
@@ -47,7 +49,14 @@ const useFetchQuestions = () => {
 
 	const saveDataToLocalStorage = (data) => {
 		localStorage.setItem("questions", JSON.stringify(data));
-		localStorage.setItem("questionsTimestamp", Date.now().toString());
+		localStorage.setItem(
+			"questionsTimestamp",
+			new Date()
+				.toLocaleString("en-US", {
+					timeZone: "Asia/Tbilisi",
+				})
+				.toString()
+		);
 	};
 
 	return {
