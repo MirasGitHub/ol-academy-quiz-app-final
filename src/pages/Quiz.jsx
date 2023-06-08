@@ -23,10 +23,7 @@ const Quiz = ({ score, setScore }) => {
 	const quizQuestions = questions?.questions || [];
 
 	const handleSelect = (option) => {
-		if (
-			quizQuestions[currentQuestion].type === "single" ||
-			quizQuestions[currentQuestion].type === "multiple"
-		) {
+		if (quizQuestions[currentQuestion].type === "single") {
 			if (
 				selected === option &&
 				selected === quizQuestions[currentQuestion].correct_answer &&
@@ -70,10 +67,7 @@ const Quiz = ({ score, setScore }) => {
 	};
 
 	const handleCheck = (option) => {
-		if (
-			quizQuestions[currentQuestion].type === "single" ||
-			quizQuestions[currentQuestion].type === "multiple"
-		) {
+		if (quizQuestions[currentQuestion].type === "single") {
 			if (option === quizQuestions[currentQuestion].correct_answer) {
 				setSelected(option);
 				setScore(score + 1);
@@ -139,6 +133,10 @@ const Quiz = ({ score, setScore }) => {
 								handleCheck={handleCheck}
 								handleSelect={handleSelect}
 								selected={selected}
+								score={score}
+								setScore={setScore}
+								handleNext={handleNext}
+								setCurrentQuestion={setCurrentQuestion}
 							/>
 						) : quizQuestions[currentQuestion].type === "boolean" ? (
 							<BooleanQuestion

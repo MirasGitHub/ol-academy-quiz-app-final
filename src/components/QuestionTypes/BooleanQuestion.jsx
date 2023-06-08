@@ -16,7 +16,9 @@ const BooleanQuestion = ({
 					}}
 					disabled={selected}
 					value={option.value ? option.value : null}
-					className={`btn btn-${selected && handleSelect(option)}`}
+					className={`btn btn-${
+						selected && handleSelect(option)
+					} boolean-options`}
 				>
 					{option.name ? option.name : option}
 				</button>
