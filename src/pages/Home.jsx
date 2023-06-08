@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 
 import { Button } from "reactstrap";
-import "../App.css";
 import { useEffect, useState } from "react";
 
 const Home = ({ quizResults }) => {

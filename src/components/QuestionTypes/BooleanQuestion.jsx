@@ -2,13 +2,13 @@ import React from "react";
 
 const BooleanQuestion = ({
 	selected,
-	BOOLEAN_QUESTIONS_OPTIONS,
+	BooleanOptions,
 	handleCheck,
 	handleSelect,
 }) => {
 	return (
 		<div className="questions">
-			{BOOLEAN_QUESTIONS_OPTIONS.map((option, index) => (
+			{BooleanOptions.map((option, index) => (
 				<button
 					key={index}
 					onClick={() => {

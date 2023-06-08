@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 const DATA_URL = `https://my-json-server.typicode.com/MirasGitHub/api-for-ol-academy-final-project/db`;
 
+const EXPIRY = 10 * 60 * 1000;
+
 const useFetchQuestions = () => {
 	const [questions, setQuestions] = useState();
-
-	const EXPIRY = 10 * 60 * 1000;
 
 	useEffect(() => {
 		const fetchFromLocalStorage = () => {
@@ -43,7 +43,7 @@ const useFetchQuestions = () => {
 		};
 
 		fetchQuestions();
-	}, [EXPIRY]);
+	}, []);
 
 	const saveDataToLocalStorage = (data) => {
 		localStorage.setItem("questions", JSON.stringify(data));

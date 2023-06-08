@@ -3,7 +3,7 @@ import uuid from "react-uuid";
 
 import { Button } from "reactstrap";
 
-import "./Popup.css";
+import "./Popup.scss";
 
 const Popup = ({
 	handleClose,
@@ -37,7 +37,6 @@ const Popup = ({
 		};
 	});
 
-	//Load quiz results from localStorage on component mount
 	useEffect(() => {
 		const storedResults = localStorage.getItem("Results");
 		if (storedResults) {

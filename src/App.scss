@@ -1,6 +1,7 @@
 .App {
 	text-align: center;
 }
+
 body {
 	background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
 }
@@ -39,6 +40,7 @@ body {
 .quiz-container {
 	padding-bottom: 3rem;
 }
+
 .spinner {
 	margin: 50px auto;
 	display: flex;
@@ -51,15 +53,14 @@ body {
 	margin-right: 20px;
 }
 
-.questions button {
-	background-color: #5bc0de;
-}
-
 .questions {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	button {
+		background-color: #5bc0de;
+	}
 }
 
 .options button {
@@ -67,14 +68,14 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-	.questions button {
-		min-width: 40vw;
-		margin: 5px auto;
-	}
 	.questions {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		button {
+			min-width: 40vw;
+			margin: 5px auto;
+		}
 	}
 }

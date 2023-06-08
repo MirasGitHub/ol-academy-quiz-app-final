@@ -3,10 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef } from "react";
 
 import { Button } from "reactstrap";
-import "../../components/ContextMenu/ContextMenu.css";
+import "../components/ContextMenu/ContextMenu.css";
 
-import { ContextMenu } from "../../components/ContextMenu/ContextMenu";
-import useContextMenu from "../../hooks/useContextMenu";
+import useContextMenu from "../hooks/useContextMenu";
+import { ContextMenu } from "../components/ContextMenu/ContextMenu";
 
 const History = ({ refreshPage, quizResults, setQuizResults }) => {
 	const handleBackToHome = () => {
@@ -21,11 +21,10 @@ const History = ({ refreshPage, quizResults, setQuizResults }) => {
 		contextMenuRef
 	);
 
-	const handleRemove = (removed_id) => {
-		console.log("removed", removed_id);
+	const handleRemove = (removedId) => {
 		setIsShow(false);
 		const updatedAttemptsList = quizResults.filter(
-			({ id }) => id !== removed_id
+			({ id }) => id !== removedId
 		);
 		setQuizResults(updatedAttemptsList);
 	};

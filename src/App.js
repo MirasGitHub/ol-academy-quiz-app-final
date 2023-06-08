@@ -1,10 +1,12 @@
 import { Route, Routes, useNavigate } from "react-router-dom";
-import "./App.css";
-import Home from "./pages/Home";
-import Quiz from "./pages/Quiz/Quiz";
-import Results from "./pages/Results";
 import { useEffect, useState } from "react";
-import History from "./pages/History/History";
+
+import "./App.scss";
+
+import Home from "./pages/Home";
+import History from "./pages/History";
+import Results from "./pages/Results";
+import Quiz from "./pages/Quiz";
 
 function App() {
 	const [score, setScore] = useState(0);
@@ -21,9 +23,6 @@ function App() {
 
 	useEffect(() => {
 		const storedResults = localStorage.getItem("Results");
-		if (storedResults) {
-			setQuizResults(JSON.parse(storedResults));
-		}
 
 		if (storedResults) {
 			const parsedResults = JSON.parse(storedResults);
@@ -35,7 +34,7 @@ function App() {
 
 				return new Date(b.date) - new Date(a.date);
 			});
-
+			setQuizResults(JSON.parse(storedResults));
 			setQuizResults(sortedResults);
 		}
 	}, []);

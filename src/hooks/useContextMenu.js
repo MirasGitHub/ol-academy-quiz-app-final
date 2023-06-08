@@ -17,7 +17,8 @@ const useContextMenu = (useRef1, useRef2) => {
 		document.addEventListener("contextmenu", handleRightMouseClick);
 		return () =>
 			document.removeEventListener("contextmenu", handleRightMouseClick);
-	});
+		// eslint-disable-next-line
+	}, []);
 
 	useEffect(() => {
 		const removeContext = (e) => {

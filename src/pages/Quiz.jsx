@@ -1,14 +1,14 @@
 import { useState } from "react";
-import useFetchQuestions from "../../hooks/useFetchQuestions";
+import useFetchQuestions from "../hooks/useFetchQuestions";
 import { Circles } from "react-loader-spinner";
 
 import { Button, Progress } from "reactstrap";
 import { useNavigate } from "react-router-dom";
-import SingleQuestion from "../../components/QuestionTypes/SingleQuestion";
-import MultipleQuestion from "../../components/QuestionTypes/MultipleQuestion";
-import BooleanQuestion from "../../components/QuestionTypes/BooleanQuestion";
+import SingleQuestion from "../components/QuestionTypes/SingleQuestion";
+import MultipleQuestion from "../components/QuestionTypes/MultipleQuestion";
+import BooleanQuestion from "../components/QuestionTypes/BooleanQuestion";
 
-const BOOLEAN_QUESTIONS_OPTIONS = [
+const BooleanOptions = [
 	{ name: "True", value: "true" },
 	{ name: "False", value: "false" },
 ];
@@ -145,7 +145,7 @@ const Quiz = ({ score, setScore }) => {
 								handleCheck={handleCheck}
 								handleSelect={handleSelect}
 								selected={selected}
-								BOOLEAN_QUESTIONS_OPTIONS={BOOLEAN_QUESTIONS_OPTIONS}
+								BooleanOptions={BooleanOptions}
 							/>
 						) : null}
 						<br />
