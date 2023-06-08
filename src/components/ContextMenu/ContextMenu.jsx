@@ -1,4 +1,4 @@
-import "./ContextMenu.css";
+import "./ContextMenu.scss";
 
 const ContextMenu = ({
 	handleRemove,

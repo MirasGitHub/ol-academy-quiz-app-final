@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef } from "react";
 
 import { Button } from "reactstrap";
-import "../components/ContextMenu/ContextMenu.css";
+import "../components/ContextMenu/ContextMenu.scss";
 
 import useContextMenu from "../hooks/useContextMenu";
 import { ContextMenu } from "../components/ContextMenu/ContextMenu";
