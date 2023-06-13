@@ -15,7 +15,6 @@ const Home = ({ quizResults }) => {
 		if (lastAttempt !== null) {
 			setLastAttempt(quizResults.slice(-1)[0]);
 		}
-		// eslint-disable-next-line
 	}, [quizResults, lastAttempt]);
 
 	return (

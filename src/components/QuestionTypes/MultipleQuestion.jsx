@@ -4,7 +4,6 @@ import { Button } from "reactstrap";
 const MultipleQuestion = ({
 	quizQuestions,
 	currentQuestion,
-	score,
 	setScore,
 	setCurrentQuestion,
 }) => {
@@ -41,9 +40,7 @@ const MultipleQuestion = ({
 	}, [selectedMultiple, currentQuestion, quizQuestions, setScore]);
 
 	const handleNext = () => {
-		if (currentQuestion === quizQuestions.length - 1) {
-			console.log("final question");
-		} else if (selectedMultiple) {
+		if (selectedMultiple) {
 			setCurrentQuestion(currentQuestion + 1);
 			setSelectedMultiple();
 		}

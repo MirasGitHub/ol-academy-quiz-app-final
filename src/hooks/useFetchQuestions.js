@@ -10,17 +10,17 @@ const useFetchQuestions = () => {
 	useEffect(() => {
 		const fetchFromLocalStorage = () => {
 			const storedData = localStorage.getItem("questions");
-			const storedTimestamp = localStorage.getItem("questionsTimestamp");
-			const currentTime = new Date().toLocaleString("en-US", {
-				timeZone: "Asia/Tbilisi",
-			});
 
-			if (
-				storedData &&
-				storedTimestamp &&
-				new Date(currentTime) - new Date(storedTimestamp) < EXPIRY
-			) {
-				return JSON.parse(storedData);
+			if (storedData) {
+				const parsedData = JSON.parse(storedData);
+				const storedTimestamp = parsedData.questionsTimestamp;
+				const currentTime = new Date().toLocaleString("en-US", {
+					timeZone: "Asia/Tbilisi",
+				});
+
+				if (new Date(currentTime) - new Date(storedTimestamp) < EXPIRY) {
+					return parsedData.questions;
+				}
 			}
 
 			return null;
@@ -48,15 +48,16 @@ const useFetchQuestions = () => {
 	}, []);
 
 	const saveDataToLocalStorage = (data) => {
-		localStorage.setItem("questions", JSON.stringify(data));
-		localStorage.setItem(
-			"questionsTimestamp",
-			new Date()
-				.toLocaleString("en-US", {
-					timeZone: "Asia/Tbilisi",
-				})
-				.toString()
-		);
+		const currentTime = new Date().toLocaleString("en-US", {
+			timeZone: "Asia/Tbilisi",
+		});
+
+		const storedData = {
+			questions: data,
+			questionsTimestamp: currentTime,
+		};
+
+		localStorage.setItem("questions", JSON.stringify(storedData));
 	};
 
 	return {
