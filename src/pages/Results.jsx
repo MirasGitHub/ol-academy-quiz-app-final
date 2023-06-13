@@ -11,6 +11,8 @@ const Results = ({
 	setCurrentResult,
 	quizResults,
 	setQuizResults,
+	updatedResults,
+	setUpdatedResults,
 }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -36,6 +38,8 @@ const Results = ({
 					setQuizResults={setQuizResults}
 					currentResult={currentResult}
 					setCurrentResult={setCurrentResult}
+					updatedResults={updatedResults}
+					setUpdatedResults={setUpdatedResults}
 				/>
 			)}
 			<br />

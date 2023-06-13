@@ -27,6 +27,7 @@ const History = ({ refreshPage, quizResults, setQuizResults }) => {
 			({ id }) => id !== removedId
 		);
 		setQuizResults(updatedAttemptsList);
+		localStorage.setItem("Results", JSON.stringify(updatedAttemptsList));
 	};
 
 	return (

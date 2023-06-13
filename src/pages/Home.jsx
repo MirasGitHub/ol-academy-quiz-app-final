@@ -1,5 +1,4 @@
 import { NavLink } from "react-router-dom";
-
 import { Button } from "reactstrap";
 import { useEffect, useState } from "react";
 
@@ -10,7 +9,14 @@ const Home = ({ quizResults }) => {
 		if (quizResults.length !== 0) {
 			setLastAttempt(quizResults.slice(-1)[0]);
 		}
-	}, [quizResults]);
+	}, [quizResults, lastAttempt]);
+
+	useEffect(() => {
+		if (lastAttempt !== null) {
+			setLastAttempt(quizResults.slice(-1)[0]);
+		}
+		// eslint-disable-next-line
+	}, [quizResults, lastAttempt]);
 
 	return (
 		<div>

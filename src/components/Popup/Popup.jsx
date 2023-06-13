@@ -13,6 +13,8 @@ const Popup = ({
 	setQuizResults,
 	currentResult,
 	setCurrentResult,
+	updatedResults,
+	setUpdatedResults,
 }) => {
 	const popupRefWrapper = useRef(null);
 
@@ -43,13 +45,9 @@ const Popup = ({
 			setQuizResults(JSON.parse(storedResults));
 		}
 	}, [setQuizResults]);
-
+	/*
 	const handleSave = (answer) => {
 		if (answer === "Yes") {
-			if (currentResult) {
-				const updatedResults = [...quizResults, currentResult];
-				localStorage.setItem("Results", JSON.stringify(updatedResults));
-			}
 			const currentQuizResult = {
 				id: uuid(),
 				points: score,
@@ -59,6 +57,44 @@ const Popup = ({
 				}),
 			};
 			setCurrentResult(currentQuizResult);
+
+			if (currentResult) {
+				const updatedResults = [...quizResults, currentResult];
+				localStorage.setItem("Results", JSON.stringify(updatedResults));
+			} else {
+				const updatedResults = [...quizResults, currentQuizResult];
+				localStorage.setItem("Results", JSON.stringify(updatedResults));
+			}
+
+			setTimeout(() => {
+				refreshPage();
+			}, 100);
+		} else if (answer === "No") {
+			refreshPage();
+		}
+	};
+	*/
+	const handleSave = (answer) => {
+		if (answer === "Yes") {
+			const currentQuizResult = {
+				id: uuid(),
+				points: score,
+				total: 9,
+				date: new Date().toLocaleString("en-US", {
+					timeZone: "Asia/Tbilisi",
+				}),
+			};
+			setCurrentResult(currentQuizResult);
+
+			if (currentResult) {
+				const updatedResults = [...quizResults, currentResult];
+				localStorage.setItem("Results", JSON.stringify(updatedResults));
+				setUpdatedResults(updatedResults); // Update the updatedResults state
+			} else {
+				const updatedResults = [...quizResults, currentQuizResult];
+				localStorage.setItem("Results", JSON.stringify(updatedResults));
+				setUpdatedResults(updatedResults); // Update the updatedResults state
+			}
 
 			setTimeout(() => {
 				refreshPage();

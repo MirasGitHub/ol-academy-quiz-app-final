@@ -13,13 +13,7 @@ function App() {
 	const [quizResults, setQuizResults] = useState([]);
 	const [currentResult, setCurrentResult] = useState(null);
 	const navigate = useNavigate();
-
-	useEffect(() => {
-		const storedResults = localStorage.getItem("Results");
-		if (storedResults) {
-			setQuizResults(JSON.parse(storedResults));
-		}
-	}, [setQuizResults]);
+	const [updatedResults, setUpdatedResults] = useState([]);
 
 	useEffect(() => {
 		const storedResults = localStorage.getItem("Results");
@@ -34,7 +28,7 @@ function App() {
 
 				return new Date(b.date) - new Date(a.date);
 			});
-			setQuizResults(JSON.parse(storedResults));
+
 			setQuizResults(sortedResults);
 		}
 	}, []);
@@ -46,7 +40,7 @@ function App() {
 	return (
 		<div className="App">
 			<Routes>
-				<Route path="/" exact element={<Home quizResults={quizResults} />} />
+				<Route path="/" exact element={<Home quizResults={updatedResults} />} />
 				<Route
 					path="quiz"
 					element={
@@ -63,6 +57,8 @@ function App() {
 							setQuizResults={setQuizResults}
 							currentResult={currentResult}
 							setCurrentResult={setCurrentResult}
+							updatedResults={updatedResults}
+							setUpdatedResults={setUpdatedResults}
 						/>
 					}
 				/>
@@ -70,8 +66,8 @@ function App() {
 					path="history"
 					element={
 						<History
-							quizResults={quizResults}
-							setQuizResults={setQuizResults}
+							quizResults={updatedResults}
+							setQuizResults={setUpdatedResults}
 							currentResult={currentResult}
 							setCurrentResult={setCurrentResult}
 							score={score}
